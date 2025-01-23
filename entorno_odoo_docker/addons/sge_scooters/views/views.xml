@@ -14,7 +14,7 @@
       </field>
     </record>
 -->
-    <!-- VISTAS DEL GARAJE -->
+    <!-- VISTAS DEL FABRICANTE -->
     <record model="ir.ui.view" id="sge_scooters.brand_view_list">
       <field name="name">sge_scooters.brand.view.list</field>
       <field name="model">sge_scooters.brand</field>
@@ -32,11 +32,47 @@
         <field name="model">sge_scooters.brand</field>
         <field name="arch" type="xml">
           <form string="Formulario de fabricantes">
-            <field name="name"/>
-            <field name="desc"/>
-            <field name="nvehicles"/>
-            <field name="nbikes"/>
-            <field name="nscooters"/>
+            <separator string="Información del fabricante" />
+              <group>
+                <field name="name"/>
+                <field name="desc"/>
+              </group>
+              <separator string="Artículos del fabricante" />
+              <group>
+                <field name="nvehicles"/>
+                <field name="nbikes"/>
+                <field name="nscooters"/>
+              </group>
+          </form>
+        </field>
+    </record>
+
+    <!-- VISTAS DE BICICLETAS -->
+    <record model="ir.ui.view" id="sge_scooters.ebike_view_list">
+      <field name="name">sge_scooters.ebike.view.list</field>
+      <field name="model">sge_scooters.ebike</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="peso"/>
+          <field name="tipo"/>
+          <field name="precio"/>
+          <field name="motor"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="sge_scooters.ebike_view_form">
+        <field name="name">sge_scooters.ebike.view.form</field>
+        <field name="model">sge_scooters.ebike</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de bicicletas eléctricas">
+              <separator string="" />
+              <field name="name"/>
+              <field name="desc"/>
+              <field name="nvehicles"/>
+              <field name="nbikes"/>
+              <field name="nscooters"/>
           </form>
         </field>
     </record>
