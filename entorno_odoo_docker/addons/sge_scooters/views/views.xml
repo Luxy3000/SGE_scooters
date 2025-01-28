@@ -67,12 +67,12 @@
         <field name="model">sge_scooters.ebike</field>
         <field name="arch" type="xml">
           <form string="Formulario de bicicletas eléctricas">
-              <separator string="" />
+              <separator string="Datos" />
               <field name="name"/>
-              <field name="desc"/>
-              <field name="nvehicles"/>
-              <field name="nbikes"/>
-              <field name="nscooters"/>
+              <field name="peso"/>
+              <field name="tipo"/>
+              <field name="precio"/>
+              <field name="motor"/>
           </form>
         </field>
     </record>

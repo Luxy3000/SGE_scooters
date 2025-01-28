@@ -1,0 +1,53 @@
+<odoo>
+<data>
+<record id="brand01" model="sge_scooters.brand">
+    <field name="name">Xiaomi</field>
+    <field name="desc">Fabricante de scooters y bicicletas</field>
+    <field name="nvehicles">16</field>
+    <field name="nbikes">7</field>
+    <field name="nscooters">9</field>
+</record>
+
+<record id="scooter01" model="sge_scooters.scooter">
+    <field name="name">Segway Nine</field>
+    <field name="peso">20</field>
+    <field name="precio">2.5</field>
+    <field name="panel">False</field>
+    <field name="potencia">media</field>
+    <field name="brand_id" ref="brand01"/>
+</record>
+
+<record id="scooter01" model="sge_scooters.scooter">
+    <field name="name">Segway Ten</field>
+    <field name="peso">15</field>
+    <field name="precio">3.5</field>
+    <field name="panel">True</field>
+    <field name="potencia">alta</field>
+
+    <field name="brand_id" ref="brand01"/>
+</record>
+
+<record id="ebike01" model="sge_scooters.ebike">
+    <field name="name">Fast fields</field>
+    <field name="peso">3</field>
+    <field name="tipo">ca</field>
+    <field name="precio">4.5</field>
+    <field name="motor">False</field>
+
+    <field name="brand_id" ref="brand01"/>
+</record>
+
+<record id="client01" model="sge_scooters.client">
+    <field name="name">CL001</field>
+    <field name="dni">12345678X</field>
+    <field name="nombre">Lucas</field>
+    <field name="apellido">Grijamar</field>
+
+    <field name="bike_id" ref="ebike01"/>
+</record>
+
+</data>
+
+    
+
+</odoo>
