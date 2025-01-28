@@ -17,6 +17,9 @@
 #         for record in self:
 #             record.value2 = float(record.value) / 100
 
+# brand_id = fields.Many2one('sge_scooters.brand', string='Fabricante de patinetes')
+# clients_id =fields.One2many('sge_scooters.client','bike_id',string='Reservada por ')
+
 from odoo import models, fields, api # type: ignore
 class comida(models.Model):
     _name = 'clsu_brews_and_boards.comida'
@@ -26,6 +29,8 @@ class comida(models.Model):
     nombre = fields.Char()
     precio = fields.Float()
     tipo = fields.Selection(string='Tipo', selection=[('snacks','Picoteo'),('dish','Primer plato'),('dessert','Postre')])
+
+    pedido = fields.Mani2one('clsu_brews_and_boards.pedido', string='Número de pedido')
 
 class bebida(models.Model):
     _name = 'clsu_brews_and_boards.bebida'
