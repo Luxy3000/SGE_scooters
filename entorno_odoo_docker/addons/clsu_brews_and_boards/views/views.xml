@@ -14,6 +14,42 @@
       </field>
     </record>
 -->
+    <!-- VISTA DE PEDIDO -->
+    <record model="ir.ui.view" id="clsu_brews_and_boards.pedido_view_list" >
+      <field name="name">clsu_brews_and_boards.pedido.view.list</field>
+      <field name="model">clsu_brews_and_boards.pedido</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="id"/>
+          <field name="hora"/>
+          <field name="jugador_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="clsu_brews_and_boards.pedido_view_form">
+        <field name="name">clsu_brews_and_boards.pedido.view.form</field>
+        <field name="model">sclsu_brews_and_boards.pedido</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de pedido">
+            <separator string="Información del pedido"/>
+              <group>
+                <field name="id"/>
+                <field name="desc"/>
+              </group>
+            <separator string="Artículos del fabricante" />
+              <group>
+                <field name="nvehicles"/>
+                <field name="nbikes"/>
+                <field name="nscooters"/>
+              </group>
+          </form>
+        </field>
+    </record>
+    <!-- VISTA DE COMIDA -->
+    <!-- VISTA DE COMIDA -->
+
 
     <!-- actions opening views on models -->
 <!--
