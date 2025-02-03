@@ -26,8 +26,7 @@ class comida(models.Model):
     _name = 'clsu_brews_and_boards.comida'
     _description = 'Menú de comida'
 
-    name = fields.Char('Comidas')
-    id = fields.Char('Codigo')
+    name = fields.Char('Comida')
     nombre = fields.Char('Nombre de la comida')
     precio = fields.Float('Precio')
     tipo = fields.Selection(
@@ -44,18 +43,17 @@ class comida(models.Model):
         'pedido_comida',                #Nombre de la tabla intermedia
         'comida_id',                    #Referencia a este modelo
         'pedido_id',                    #Referencia al otro modelo
-        string='Número de pedido'
+        string='Pertenece a pedido:'
     )
 
 class bebida(models.Model):
     _name = 'clsu_brews_and_boards.bebida'
     _description = 'Menú de bebidas'
 
-    name = fields.Char('Bebidas')
-    id = fields.Char('Codigo')
+    name = fields.Char('Bebida')
     nombre = fields.Char('Nombre de la bebida')
     precio = fields.Float('Precio')
-    tamaño = fields.Selection(
+    tamanio = fields.Selection(
         string='Tamaño', 
         selection=[
             ('small','Pequeño'),
@@ -69,15 +67,14 @@ class bebida(models.Model):
         'pedido_bebida',                #Nombre de la tabla intermedia
         'bebida_id',                    #Referencia a este modelo
         'pedido_id',                    #Referencia al otro modelo
-        string='Número de pedido'
+        string='Pertenece a pedido: '
     )
 
 class pedido(models.Model):
     _name = 'clsu_brews_and_boards.pedido'
     _description = 'Pedido de comida'
 
-    name = fields.Char('Pedidos')
-    id = fields.Char('Codigo')
+    name = fields.Char('Pedido')
     hora = fields.Datetime('Hora del pedido')
 
     comida_id = fields.Many2many(
@@ -108,7 +105,6 @@ class staff(models.Model):
     _description = 'Trabajadores'
 
     name = fields.Char('Staff')
-    id = fields.Char('Codigo')
     nombre = fields.Char('Nombre: ')
     telf = fields.Integer('Telefono: ')
     email = fields.Char('Email: ')
@@ -132,9 +128,10 @@ class jugador(models.Model):
     _description = 'Cliente habitual'
 
     name = fields.Char('Jugadores')
-    id = fields.Char('Codigo: ')
     nombre = fields.Char('Nombre completo: ')
     alias = fields.Char('Alias: ')
+    telf = fields.Char("Nº teléfono: ")
+    email = fields.Chat("Email: ")
 
     pedido_id=fields.One2many(
         'clsu_brews_and_boards.pedido', 
@@ -159,7 +156,6 @@ class torneo(models.Model):
     _description = 'Torneo de juego'
 
     name = fields.Char('Torneos')
-    id = fields.Char('Codigo')
     nombre = fields.Char('Titulo del torneo: ')
     premio = fields.Char('Premio del torneo: ')
     fecha_inicio = fields.Date('Fecha establecida de inicio: ')
@@ -182,7 +178,6 @@ class juego(models.Model):
     _description = 'Torneo de juego'
 
     name = fields.Char('Juegos de mesa')
-    id = fields.Char('Codigo')
     nombre = fields.Char('Nombre del juego: ')
     genero = fields.Selection(
         string='Género del juego', 
@@ -237,7 +232,6 @@ class reserva(models.Model):
     _description = 'Registro de reserva'
 
     name = fields.Char('Reservas')
-    id = fields.Char('Codigo')
     hora = fields.Datetime('Hora de la reserva: ')
     jugadores = fields.Integer('Número de personas para la reserva: ')
 
