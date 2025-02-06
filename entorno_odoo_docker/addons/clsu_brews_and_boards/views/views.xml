@@ -20,7 +20,7 @@
       <field name="model">clsu_brews_and_boards.pedido</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
+          <!-- <field name="name"/> -->
           <field name="hora"/>
           <field name="jugador_id"/>
         </tree>
@@ -37,7 +37,7 @@
                 <group>
                 <separator string="" />
                   <group>
-                    <field name="name"/>
+                    <!-- <field name="name"/> -->
                     <field name="hora" />
                   </group>
                 <separator string="Contenido del pedido" />
@@ -63,7 +63,9 @@
       <field name="model">clsu_brews_and_boards.comida</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="imagen" widget="image"/>
           <field name="nombre"/>
+          <field name="desc"/>
           <field name="precio"/>
           <field name="tipo"/>
         </tree>
@@ -77,9 +79,10 @@
           <form string="Formulario para comidas">
             <sheet>
               <group name="datos_comida" string="Datos sobre la comida">
+              <field name="imagen" widget="image"/>
                 <group>
-                  <field name="name"/>
                   <field name="nombre"/>
+                  <field name="desc"/>
                   <field name="tipo"/>
                   <field name="precio"/>
                 </group>
@@ -97,7 +100,9 @@
       <field name="model">clsu_brews_and_boards.bebida</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="imagen" widget="image"/>
           <field name="nombre"/>
+          <field name="desc"/>
           <field name="precio"/>
           <field name="tamanio"/>
         </tree>
@@ -111,9 +116,10 @@
           <form string="Formulario para bebidas">
             <sheet>
               <group name="datos_bebida" string="Datos sobre la bebida">
+              <field name="imagen" widget="image"/>
                 <group>
-                  <field name="name"/>
                   <field name="nombre"/>
+                  <field name="desc"/>
                   <field name="tamanio"/>
                   <field name="precio"/>
                 </group>
@@ -131,6 +137,7 @@
       <field name="model">clsu_brews_and_boards.staff</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="imagen" widget="image"/>
           <field name="rol"/>
           <field name="nombre"/>
           <field name="email"/>
@@ -154,6 +161,7 @@
                   <field name="rol"/>
                 <separator string="Pedidos realizados: " />
                   <field name="pedido_id" />
+                <field name="imagen" widget="image"/>
               </group>
             </sheet>
           </form>
@@ -161,11 +169,12 @@
     </record>
 
     <!-- VISTA DE JUGADOR -->
-    <record model="ir.ui.view" id="clsu_brews_and_boards.torneo_view_list" >
-      <field name="name">clsu_brews_and_boards.torneo.view.list</field>
-      <field name="model">clsu_brews_and_boards.torneo</field>
+    <record model="ir.ui.view" id="clsu_brews_and_boards.jugador_view_list" >
+      <field name="name">clsu_brews_and_boards.jugador.view.list</field>
+      <field name="model">clsu_brews_and_boards.jugador</field>
       <field name="arch" type="xml">
         <tree>
+            <field name="imagen" widget="image"/>
             <field name="nombre"/>
             <field name="alias"/>
             <field name="email"/>
@@ -173,9 +182,9 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="clsu_brews_and_boards.torneo_view_form">
-        <field name="name">clsu_brews_and_boards.torneo.view.form</field>
-        <field name="model">clsu_brews_and_boards.torneo</field>
+    <record model="ir.ui.view" id="clsu_brews_and_boards.jugador_view_form">
+        <field name="name">clsu_brews_and_boards.jugador.view.form</field>
+        <field name="model">clsu_brews_and_boards.jugador</field>
         <field name="arch" type="xml">
           <form string="Formulario de jugador">
             <sheet>
@@ -189,6 +198,7 @@
                 <field name="reserva_id" />
               <separator string="Torneos en los que participa: " />
                 <field name="torneo_id" />
+              <field name="imagen" widget="image"/>
             </sheet>
           </form>
         </field>
@@ -201,6 +211,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="nombre"/>
+          <field name="desc"/>
           <field name="premio"/>
           <field name="juego_id" />
           <field name="fecha_inicio"/>
@@ -209,7 +220,7 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="clsu_brews_and_boards.bebida_view_form">
+    <record model="ir.ui.view" id="clsu_brews_and_boards.torneo_view_form">
         <field name="name">clsu_brews_and_boards.torneo.view.form</field>
         <field name="model">clsu_brews_and_boards.torneo</field>
         <field name="arch" type="xml">
@@ -217,6 +228,7 @@
             <sheet>
               <group name="datos" string="Datos generales del torneo">
                 <field name="nombre"/>
+                <field name="desc"/>
                 <field name="premio"/>
                 <separator string="Fechas: " />
                 <field name="fecha_inicio" />
@@ -230,11 +242,111 @@
     </record>
 
     <!-- VISTA DE JUEGO -->
+    <record model="ir.ui.view" id="clsu_brews_and_boards.juego_view_list" >
+      <field name="name">clsu_brews_and_boards.juego.view.list</field>
+      <field name="model">clsu_brews_and_boards.juego</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="imagen" widget="image"/>
+          <field name="nombre"/>
+          <field name="desc"/>
+          <field name="genero"/>
+          <field name="num_jugadores" />
+          <field name="duracion"/>
+          <field name="edad_recom" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="clsu_brews_and_boards.juego_view_form">
+        <field name="name">clsu_brews_and_boards.juego.view.form</field>
+        <field name="model">clsu_brews_and_boards.juego</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de juego">
+            <sheet>
+              <field name="imagen" widget="image"/>
+              <group name="datos" string="Datos generales del juego">
+                <field name="nombre"/>
+                <field name="desc"/>
+                <field name="género"/>
+                <separator string="num_jugadores" />
+                <field name="duracion" />
+                <field name="edad_recom" />
+              </group>
+              <separator string="Datos para local: " />
+                <field name="torneo_id" />
+                <field name="reserva_id" />
+            </sheet>
+          </form>
+        </field>
+    </record>
 
     <!-- VISTA DE MESA -->
+    <record model="ir.ui.view" id="clsu_brews_and_boards.mesa_view_list" >
+      <field name="name">clsu_brews_and_boards.mesa.view.list</field>
+      <field name="model">clsu_brews_and_boards.mesa</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="num_mesa"/>
+          <field name="capacidad"/>
+          <field name="tipo" />
+          <field name="estado"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="clsu_brews_and_boards.mesa_view_form">
+        <field name="name">clsu_brews_and_boards.mesa.view.form</field>
+        <field name="model">clsu_brews_and_boards.mesa</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de mesa">
+            <sheet>
+              <group name="datos" string="Datos generales de la mesa">
+                <field name="num_mesa"/>
+                <field name="capacidad"/>
+                <separator string="tipo" />
+                <field name="estado" />
+              </group>
+              <separator string="Reservas: " />
+                <field name="reserva_id" />
+            </sheet>
+          </form>
+        </field>
+    </record>
 
     <!-- VISTA DE RESERVA -->
+    <record model="ir.ui.view" id="clsu_brews_and_boards.reserva_view_list" >
+      <field name="name">clsu_brews_and_boards.reserva.view.list</field>
+      <field name="model">clsu_brews_and_boards.reserva</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="jugador_id"/>
+          <field name="mesa_id"/>
+          <field name="hora" />
+          <field name="jugadores"/>
+        </tree>
+      </field>
+    </record>
 
+    <record model="ir.ui.view" id="clsu_brews_and_boards.reserva_view_form">
+        <field name="name">clsu_brews_and_boards.reserva.view.form</field>
+        <field name="model">clsu_brews_and_boards.reserva</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de reserva">
+            <sheet>
+              <group name="datos" string="Hora, mesa y juego">
+                <field name="name"/>
+                <field name="hora"/>
+                <separator string="mesa_id" />
+                <field name="juego_id" />
+              </group>
+              <separator string="Reservado para " />
+                <field name="jugador_id" />
+                <field name="jugadores" />
+            </sheet>
+          </form>
+        </field>
+    </record>
 
     <!-- actions opening views on models -->
 <!--
@@ -244,41 +356,89 @@
       <field name="view_mode">tree,form</field>
     </record>
 -->
+    <!-- Acción de ventana de pedido  -->
     <record model="ir.actions.act_window" id="clsu_brews_and_boards.pedido_action_window">
       <field name="name">Pedidos</field>
       <field name="res_model">clsu_brews_and_boards.pedido</field>
       <field name="view_mode">tree,form</field>
     </record>
-      <record model="ir.actions.act_window" id="clsu_brews_and_boards.comida_action_window">
-        <field name="name">Comidas</field>
-        <field name="res_model">clsu_brews_and_boards.comida</field>
-        <field name="view_mode">tree,form</field>
-      </record>
-      <record model="ir.actions.act_window" id="clsu_brews_and_boards.bebida_action_window">
-        <field name="name">Bebidas</field>
-        <field name="res_model">clsu_brews_and_boards.bebida</field>
-        <field name="view_mode">tree,form</field>
-      </record>
+    <!-- Acción de ventana de comida  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.comida_action_window">
+      <field name="name">Comidas</field>
+      <field name="res_model">clsu_brews_and_boards.comida</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana de bebida  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.bebida_action_window">
+      <field name="name">Bebidas</field>
+      <field name="res_model">clsu_brews_and_boards.bebida</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana de staff  -->
     <record model="ir.actions.act_window" id="clsu_brews_and_boards.staff_action_window">
       <field name="name">Staff</field>
       <field name="res_model">clsu_brews_and_boards.staff</field>
       <field name="view_mode">tree,form</field>
     </record>
+    <!-- Acción de ventana de torneo  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.torneo_action_window">
+      <field name="name">Torneos</field>
+      <field name="res_model">clsu_brews_and_boards.torneo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana de juego  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.juego_action_window">
+      <field name="name">Juegos</field>
+      <field name="res_model">clsu_brews_and_boards.juego</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana de mesa  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.mesa_action_window">
+      <field name="name">Mesas</field>
+      <field name="res_model">clsu_brews_and_boards.mesa</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana de reserva  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.reserva_action_window">
+      <field name="name">Reservas</field>
+      <field name="res_model">clsu_brews_and_boards.reserva</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- Top menu item -->
 
-    <menuitem name="Café y Cartas" id="clsu_brews_and_boards.menu_root"/>
+    <menuitem name="Brews and Boards" id="clsu_brews_and_boards.menu_root"/>
 
     <!-- menu categories -->
 <!--
     <menuitem name="Menu 1" id="clsu_brews_and_boards.menu_1" parent="clsu_brews_and_boards.menu_root"/>
     <menuitem name="Menu 2" id="clsu_brews_and_boards.menu_2" parent="clsu_brews_and_boards.menu_root"/>
 -->
-    <menuitem name="Pedidos" id="clsu_brews_and_boards.resumen_pedidos_menu" parent="clsu_brews_and_boards.menu_root" action="clsu_brews_and_boards.pedido_action_window"/>
+    <!-- Menú inicial para ver relacionado con pedidos (pedidos, bebidas y comidas) --> 
+    <menuitem name="Pedidos" id="clsu_brews_and_boards.resumen_pedidos_menu" parent="clsu_brews_and_boards.menu_root" />
+      <!-- menú para ver pedidos -->
       <menuitem name="Resumen pedidos" id="clsu_brews_and_boards.pedido_menu" parent="clsu_brews_and_boards.resumen_pedidos_menu" action="clsu_brews_and_boards.pedido_action_window"/>
+      <!-- menú para ver comidas -->
       <menuitem name="Comidas" id="clsu_brews_and_boards.comidas_menu" parent="clsu_brews_and_boards.resumen_pedidos_menu" action="clsu_brews_and_boards.comida_action_window"/>
+      <!-- menú para ver bebidas -->
       <menuitem name="Bebidas" id="clsu_brews_and_boards.bebida_menu" parent="clsu_brews_and_boards.resumen_pedidos_menu" action="clsu_brews_and_boards.bebida_action_window"/>
+
+    <!-- Menú en barra para ver staff -->
     <menuitem name="Staff" id="clsu_brews_and_boards.staff_menu" parent="clsu_brews_and_boards.menu_root" action="clsu_brews_and_boards.staff_action_window"/>
+
+    <!-- Menú en barra para ver relacionado con juegos (juegos y torneos) -->
+    <menuitem name="Juegos" id="clsu_brews_and_boards.resumen_juegos_menu" parent="clsu_brews_and_boards.menu_root"/>
+      <!-- menú para ver juegos -->
+      <menuitem name="Juegos" id="clsu_brews_and_boards.juego_menu" parent="clsu_brews_and_boards.resumen_juegos_menu" action="clsu_brews_and_boards.juego_action_window"/>
+      <!-- menú para ver torneos -->
+      <menuitem name="Torneos" id="clsu_brews_and_boards.torneo_menu" parent="clsu_brews_and_boards.resumen_juegos_menu" action="clsu_brews_and_boards.torneo_action_window"/>
+    
+    <!-- Menú en barra para ver relacionado con mesas (mesas y reservas) -->
+    <menuitem name="Mesas y reservas" id="clsu_brews_and_boards.resumen_mesas_menu" parent="clsu_brews_and_boards.menu_root"/>
+      <!-- menú para ver juegos -->
+      <menuitem name="Mesas" id="clsu_brews_and_boards.mesa_menu" parent="clsu_brews_and_boards.resumen_mesas_menu" action="clsu_brews_and_boards.mesa_action_window"/>
+      <!-- menú para ver torneos -->
+      <menuitem name="Reservas" id="clsu_brews_and_boards.reserva_menu" parent="clsu_brews_and_boards.resumen_mesas_menu" action="clsu_brews_and_boards.reserva_action_window"/>
 
     <!-- actions -->
 <!--

@@ -1,0 +1,301 @@
+<odoo>
+    <data>
+        <!-- Introducción de datos de comida -->
+        <!-- <recor id="" model="clsu_brews_and_boards.comida">
+            <field name="name"></field>
+            <field name="nombre"></field>
+            <field name="precio"></field>
+            <field name="tipo"></field>
+            <field name="imagen"></field>ç
+
+            <field name="pedido_id"></field>
+        </recor> -->
+        <recor id="CO001" model="clsu_brews_and_boards.comida">
+            <field name="nombre">Pizza de Pepperoni</field>
+            <field name="desc">Pizza de 33cm de diámetro</field>
+            <field name="precio">8.50</field>
+            <field name="tipo">dish</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id" ref="P001"/>
+        </recor>
+        <recor id="CO002" model="clsu_brews_and_boards.comida">
+            <field name="nombre">Papas fritas con queso</field>
+            <field name="desc">Ración de patatas fritas con bacon y queso derretido</field>
+            <field name="precio">4.00</field>
+            <field name="tipo">snacks</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id" ref="P002"/>
+        </recor>
+        <recor id="CO003" model="clsu_brews_and_boards.comida">
+            <field name="nombre">Pastel de chocolate</field>
+            <field name="desc">Porción de pastel de chocolate con nata</field>
+            <field name="precio">5.50</field>
+            <field name="tipo">dessert</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id" ref="P001"/>
+        </recor>
+
+        <!-- Introducción de datos de bebida -->
+        <!-- <recor id="" model="clsu_brews_and_boards.bebida">
+            <field name="desc"></field>
+            <field name="name"></field>
+            <field name="nombre"></field>
+            <field name="precio"></field>
+            <field name="tamanio"></field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"></field>
+        </recor> -->
+        <recor id="BE001" model="clsu_brews_and_boards.bebida">
+            <field name="nombre">Café Americano</field>
+            <field name="desc">Taza de café negro</field>
+            <field name="precio">2.00</field>
+            <field name="tamanio">small</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id" ref="P002"/>
+        </recor>
+        <recor id="BE002" model="clsu_brews_and_boards.bebida">
+            <field name="nombre">Té Verde</field>
+            <field name="desc">Infusión de té verde</field>
+            <field name="precio">2.50</field>
+            <field name="tamanio">medium</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id" ref="P001"/>
+        </recor>
+        <recor id="BE003" model="clsu_brews_and_boards.bebida">
+            <field name="nombre">Batido de Fresano</field>
+            <field name="desc">Batido natural de fresas</field>
+            <field name="precio">3.50</field>
+            <field name="tamanio">tall</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id" ref="P002"/>
+        </recor>
+
+        <!-- Introducción de datos de pedido -->
+        <!-- <recor id="" model="clsu_brews_and_boards.pedido">
+            <field name="name"></field>
+            <field name="hora"></field>
+
+            <field name="comida_id"></field>
+            <field name="bebida_id"></field>
+            <field name="staff_id"></field>
+            <field name="jugador_id"></field>
+        </recor> -->
+        <recor id="P001" model="clsu_brews_and_boards.pedido">
+            <field name="name">P001</field>
+            <field name="hora">2025-02-06 12:30:00</field>
+
+            <field name="comida_id" /> 
+            <field name="bebida_id" />
+            <field name="staff_id" ref="ST001"/>
+            <field name="jugador_id" ref=""/>
+        </recor>
+        <recor id="P002" model="clsu_brews_and_boards.pedido">
+            <field name="name">P002</field>
+            <field name="hora">2025-02-06 13:15:00</field>
+
+            <field name="comida_id" />
+            <field name="bebida_id" />
+            <field name="staff_id" ref="ST002"/>
+            <field name="jugador_id" ref=""/>
+        </recor>
+
+        <!-- Introducción de datos de staff -->
+        <!-- <recor id="" model="clsu_brews_and_boards.staff">
+            <field name="name"></field>
+            <field name="nombre"></field>
+            <field name="telf"></field>
+            <field name="email"></field>
+            <field name="rol"></field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"></field>
+        </recor> -->
+        <recor id="ST001" model="clsu_brews_and_boards.staff">
+            <field name="nombre">Juan Pérez</field>
+            <field name="telf">123456789</field>
+            <field name="email">juan@example.com</field>
+            <field name="rol">mess</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"/>
+        </recor>
+        <recor id="ST002" model="clsu_brews_and_boards.staff">
+            <field name="nombre">Ana Torres</field>
+            <field name="telf">987654321</field>
+            <field name="email">ana@example.com</field>
+            <field name="rol">coff</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"/>
+        </recor>
+        <recor id="ST003" model="clsu_brews_and_boards.staff">
+            <field name="nombre">Carlos Gómez</field>
+            <field name="telf">456789123</field>
+            <field name="email">carlos@example.com</field>
+            <field name="rol">mangr</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"/>
+        </recor>
+
+        <!-- Introducción de datos de jugador -->
+        <!-- <recor id="" model="clsu_brews_and_boards.jugador">
+            <field name="nombre"></field>
+            <field name="alias"></field>
+            <field name="telf"></field>
+            <field name="email"></field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"></field>
+            <field name="torneo_id"></field>
+            <field name="reserva_id"></field>
+        </recor> -->
+        <recor id="J001" model="clsu_brews_and_boards.jugador">
+            <field name="nombre">María López</field>
+            <field name="alias">GamerQueen</field>
+            <field name="telf">555111222</field>
+            <field name="email">maria@example.com</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"/>
+            <field name="torneo_id"/>
+            <field name="reserva_id"/>
+        </recor>
+        <recor id="J002" model="clsu_brews_and_boards.jugador">
+            <field name="nombre">Pedro Sánchez</field>
+            <field name="alias">BoardMaster</field>
+            <field name="telf">555333444</field>
+            <field name="email">pedro@example.com</field>
+            <field name="imagen"></field>
+
+            <field name="pedido_id"/>
+            <field name="torneo_id"/>
+            <field name="reserva_id"/>
+        </recor>
+
+        <!-- Introducción de datos de torneo -->
+        <!-- <recor id="" model="clsu_brews_and_boards.torneo">
+            <field name="nombre"></field>
+            <field name="desc"></field>
+            <field name="premio"></field>
+            <field name="fecha_inicio"></field>
+            <field name="fecha_final"></field>
+            
+            <field name="jugador_id"></field>
+            <field name="juego_id"></field>
+        </recor> -->
+        <recor id="T001" model="clsu_brews_and_boards.torneo">
+            <field name="nombre">Torneo de Catan</field>
+            <field name="desc"></field>
+            <field name="premio">Cupón de 20€</field>
+            <field name="fecha_inicio">10/03/2025</field>
+            <field name="fecha_final"></field>
+            
+            <field name="jugador_id"/>
+            <field name="juego_id"/>
+        </recor>
+        <recor id="T002" model="clsu_brews_and_boards.torneo">
+            <field name="nombre">Torneo de Virus </field>
+            <field name="desc"></field>
+            <field name="premio">Juego gratis</field>
+            <field name="fecha_inicio">15/03/2025</field>
+            <field name="fecha_final"></field>
+            
+            <field name="jugador_id"/>
+            <field name="juego_id"/>
+        </recor>
+
+        <!-- Introducción de datos de juego -->
+        <!-- <recor id="" model="clsu_brews_and_boards.juego">
+            <field name="nombre"></field>
+            <field name="desc"></field>
+            <field name="genero"></field>
+            <field name="num_jugadores"></field>
+            <field name="duracion"></field>
+            <field name="edad_recom"></field>
+            <field name="imagen"></field>
+
+            <field name="torneo_id"></field>
+            <field name="reserva_id"></field>
+        </recor> -->
+        <recor id="GA001" model="clsu_brews_and_boards.juego">
+            <field name="nombre">Catan</field>
+            <field name="desc"></field>
+            <field name="genero">strategy</field>
+            <field name="num_jugadores">4 jugadores</field>
+            <field name="duracion">90 min</field>
+            <field name="edad_recom">+10</field>
+            <field name="imagen"></field>
+
+            <field name="torneo_id"/>
+            <field name="reserva_id"/>
+        </recor>
+        <recor id="GA002" model="clsu_brews_and_boards.juego">
+            <field name="nombre">Virus</field>
+            <field name="desc"></field>
+            <field name="genero">party</field>
+            <field name="num_jugadores">2-6 jugadores</field>
+            <field name="duracion">30 min</field>
+            <field name="edad_recom">+8</field>
+            <field name="imagen"></field>
+
+            <field name="torneo_id"/>
+            <field name="reserva_id"/>
+        </recor>
+
+        <!-- Introducción de datos de mesa -->
+        <!-- <recor id="" model="clsu_brews_and_boards.mesa">
+            <field name="name"></field>
+            <field name="num_mesa"></field>
+            <field name="capacidad"></field>
+            <field name="tipo"></field>
+            <field name="estado"></field>
+
+            <field name="reserva_id"></field>
+        </recor> -->
+        <recor id="ME001" model="clsu_brews_and_boards.mesa">
+            <field name="num_mesa">01</field>
+            <field name="capacidad">4</field>
+            <field name="tipo">True</field>
+            <field name="estado">free</field>
+
+            <field name="reserva_id"/>
+        </recor>
+        <recor id="ME002" model="clsu_brews_and_boards.mesa">
+            <field name="num_mesa">02</field>
+            <field name="capacidad">6</field>
+            <field name="tipo">True</field>
+            <field name="estado">resr</field>
+
+            <field name="reserva_id"/>
+        </recor>
+
+        <!-- Introducción de datos de reserva -->
+        <!-- <recor id="" model="clsu_brews_and_boards.reserva">
+            <field name="name"></field>
+            <field name="hora"></field>
+            <field name="jugadores"></field>
+
+            <field name="jugador_id"></field>
+            <field name="juego_id"></field>
+            <field name="mesa_id"></field>
+        </recor> -->
+        <recor id="RES001" model="clsu_brews_and_boards.reserva">
+            <!-- <field name="name"></field> -->
+            <field name="hora">RES001</field>
+            <field name="jugadores">4</field>
+
+            <field name="jugador_id"/>
+            <field name="juego_id"/>
+            <field name="mesa_id"/>
+        </recor>
+
+    </data>
+</odoo>

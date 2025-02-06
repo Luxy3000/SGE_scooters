@@ -26,8 +26,8 @@ class comida(models.Model):
     _name = 'clsu_brews_and_boards.comida'
     _description = 'Menú de comida'
 
-    name = fields.Char('Comida')
     nombre = fields.Char('Nombre de la comida')
+    desc = fields.Char('Descripción') 
     precio = fields.Float('Precio')
     tipo = fields.Selection(
         string='Tipo', 
@@ -37,6 +37,7 @@ class comida(models.Model):
             ('dessert','Postre')
         ]
     )
+    imagen = fields.Binary(string="Imagen")
 
     pedido_id = fields.Many2many(
         'clsu_brews_and_boards.pedido', #Modelo relacionado
@@ -50,8 +51,8 @@ class bebida(models.Model):
     _name = 'clsu_brews_and_boards.bebida'
     _description = 'Menú de bebidas'
 
-    name = fields.Char('Bebida')
     nombre = fields.Char('Nombre de la bebida')
+    desc = fields.Char('Descripción') 
     precio = fields.Float('Precio')
     tamanio = fields.Selection(
         string='Tamaño', 
@@ -61,6 +62,7 @@ class bebida(models.Model):
             ('tall','Grande')
         ]
     )
+    imagen = fields.Binary(string="Imagen")
 
     pedido_id = fields.Many2many(
         'clsu_brews_and_boards.pedido', #Modelo relacionado
@@ -104,7 +106,6 @@ class staff(models.Model):
     _name = 'clsu_brews_and_boards.staff'
     _description = 'Trabajadores'
 
-    name = fields.Char('Staff')
     nombre = fields.Char('Nombre: ')
     telf = fields.Integer('Telefono: ')
     email = fields.Char('Email: ')
@@ -116,6 +117,7 @@ class staff(models.Model):
             ('mangr','Administrador')
         ]
     )
+    imagen = fields.Binary(string="Imagen")
 
     pedido_id=fields.One2many(
         'clsu_brews_and_boards.pedido', 
@@ -127,11 +129,12 @@ class jugador(models.Model):
     _name = 'clsu_brews_and_boards.jugador'
     _description = 'Cliente habitual'
 
-    name = fields.Char('Jugadores')
+    # name = fields.Char('Jugadores')
     nombre = fields.Char('Nombre completo: ')
     alias = fields.Char('Alias: ')
     telf = fields.Char("Nº teléfono: ")
     email = fields.Chat("Email: ")
+    imagen = fields.Binary(string="Imagen")
 
     pedido_id=fields.One2many(
         'clsu_brews_and_boards.pedido', 
@@ -155,8 +158,8 @@ class torneo(models.Model):
     _name = 'clsu_brews_and_boards.torneo'
     _description = 'Torneo de juego'
 
-    name = fields.Char('Torneos')
     nombre = fields.Char('Titulo del torneo: ')
+    desc = fields.Char('Descripción') 
     premio = fields.Char('Premio del torneo: ')
     fecha_inicio = fields.Date('Fecha establecida de inicio: ')
     fecha_final = fields.Date('Fecha establecida de fin:')
@@ -177,8 +180,8 @@ class juego(models.Model):
     _name = 'clsu_brews_and_boards.juego'
     _description = 'Torneo de juego'
 
-    name = fields.Char('Juegos de mesa')
     nombre = fields.Char('Nombre del juego: ')
+    desc = fields.Char('Descripción') 
     genero = fields.Selection(
         string='Género del juego', 
         selection=[
@@ -191,8 +194,10 @@ class juego(models.Model):
             ('deduc','Deduccion y faroleo')
         ]
     )
-    num_jugadores = fields.Integer('Numero de jugadores recomendados')
+    num_jugadores = fields.Char('Numero de jugadores recomendados')
     duracion = fields.Integer('Duracion media de partida')
+    edad_recom = fields.Char('Edad mínima recomendada')
+    imagen = fields.Binary(string="Imagen")
 
     torneo_id=fields.One2many(
         'clsu_brews_and_boards.torneo', 
@@ -209,7 +214,7 @@ class mesa(models.Model):
     _name = 'clsu_brews_and_boards.mesa'
     _description = 'Mesas del local'
 
-    name = fields.Char('Mesas disponibles')
+    # name = fields.Char('Mesas disponibles')
     num_mesa = fields.Char('Codigo')
     capacidad = fields.Integer('Cupo de sillas: ')
     tipo = fields.Boolean(string='Apto para juego', default=True)
@@ -231,7 +236,7 @@ class reserva(models.Model):
     _name = 'clsu_brews_and_boards.reserva'
     _description = 'Registro de reserva'
 
-    name = fields.Char('Reservas')
+    # name = fields.Char('Reserva')
     hora = fields.Datetime('Hora de la reserva: ')
     jugadores = fields.Integer('Número de personas para la reserva: ')
 
