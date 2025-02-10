@@ -15,7 +15,7 @@
             <field name="desc">Pizza de 33cm de diámetro</field>
             <field name="precio">8.50</field>
             <field name="tipo">dish</field>
-            <field name="imagen"></field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/"/>
 
             <field name="pedido_id" ref="P001"/>
         </recor>

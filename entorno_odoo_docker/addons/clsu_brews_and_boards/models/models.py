@@ -133,7 +133,7 @@ class jugador(models.Model):
     nombre = fields.Char('Nombre completo: ')
     alias = fields.Char('Alias: ')
     telf = fields.Char("Nº teléfono: ")
-    email = fields.Chat("Email: ")
+    email = fields.Char("Email: ")
     imagen = fields.Binary(string="Imagen")
 
     pedido_id=fields.One2many(

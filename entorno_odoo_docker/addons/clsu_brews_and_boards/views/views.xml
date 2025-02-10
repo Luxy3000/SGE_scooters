@@ -79,12 +79,14 @@
           <form string="Formulario para comidas">
             <sheet>
               <group name="datos_comida" string="Datos sobre la comida">
-              <field name="imagen" widget="image"/>
                 <group>
                   <field name="nombre"/>
                   <field name="desc"/>
                   <field name="tipo"/>
                   <field name="precio"/>
+                </group>
+                <group>
+                  <field name="imagen" widget="image"/>
                 </group>
                 <separator string="Realizar para pedidos:" />
                   <field name="pedido_id"/>
@@ -116,12 +118,14 @@
           <form string="Formulario para bebidas">
             <sheet>
               <group name="datos_bebida" string="Datos sobre la bebida">
-              <field name="imagen" widget="image"/>
                 <group>
                   <field name="nombre"/>
                   <field name="desc"/>
                   <field name="tamanio"/>
                   <field name="precio"/>
+                </group>
+                <group>
+                   <field name="imagen" widget="image"/>
                 </group>
                 <separator string="Realizar para pedidos:" />
                   <field name="pedido_id"/>
@@ -137,7 +141,6 @@
       <field name="model">clsu_brews_and_boards.staff</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="imagen" widget="image"/>
           <field name="rol"/>
           <field name="nombre"/>
           <field name="email"/>
@@ -153,15 +156,21 @@
             <sheet>
               <group name="datos_personales" string="Datos personales del trabajador">
                 <group>
-                  <field name="nombre"/>
-                  <field name="telf"/>
-                  <field name="email"/>
+                  <group>
+                    <field name="imagen" widget="image"/>
+                  </group>
+                  <group>
+                    <field name="nombre"/>
+                    <field name="telf"/>
+                    <field name="email"/>
+                  </group>
                 </group>
-                <separator string="Puesto: " />
+                <!-- <group> -->
+                   <separator string="Puesto: " />
                   <field name="rol"/>
                 <separator string="Pedidos realizados: " />
                   <field name="pedido_id" />
-                <field name="imagen" widget="image"/>
+                <!-- </group> -->
               </group>
             </sheet>
           </form>
@@ -174,7 +183,6 @@
       <field name="model">clsu_brews_and_boards.jugador</field>
       <field name="arch" type="xml">
         <tree>
-            <field name="imagen" widget="image"/>
             <field name="nombre"/>
             <field name="alias"/>
             <field name="email"/>
@@ -189,16 +197,20 @@
           <form string="Formulario de jugador">
             <sheet>
               <group name="datos_personales" string="Datos personales del jugador">
-                <field name="nombre"/>
-                <field name="alias"/>
-                <field name="telf"/>
-                <field name="email"/>
+                <group>
+                  <field name="imagen" widget="image"/>
+                </group>
+                <group>
+                  <field name="nombre"/>
+                  <field name="alias"/>
+                  <field name="telf"/>
+                  <field name="email"/>
+                </group>
               </group>
               <separator string="Reservas: " />
                 <field name="reserva_id" />
               <separator string="Torneos en los que participa: " />
                 <field name="torneo_id" />
-              <field name="imagen" widget="image"/>
             </sheet>
           </form>
         </field>
@@ -264,14 +276,18 @@
         <field name="arch" type="xml">
           <form string="Formulario de juego">
             <sheet>
-              <field name="imagen" widget="image"/>
-              <group name="datos" string="Datos generales del juego">
-                <field name="nombre"/>
-                <field name="desc"/>
-                <field name="género"/>
-                <separator string="num_jugadores" />
-                <field name="duracion" />
-                <field name="edad_recom" />
+              <group>
+                <group>
+                  <field name="imagen" widget="image"/>
+                </group>
+                <group name="datos" string="Datos generales del juego">
+                  <field name="nombre"/>
+                  <field name="desc"/>
+                  <field name="genero"/>
+                  <separator string="num_jugadores" />
+                  <field name="duracion" />
+                  <field name="edad_recom" />
+                </group>
               </group>
               <separator string="Datos para local: " />
                 <field name="torneo_id" />
@@ -308,7 +324,9 @@
                 <field name="estado" />
               </group>
               <separator string="Reservas: " />
-                <field name="reserva_id" />
+                <group>
+                  <field name="reserva_id" />
+                </group>
             </sheet>
           </form>
         </field>
@@ -335,14 +353,15 @@
           <form string="Formulario de reserva">
             <sheet>
               <group name="datos" string="Hora, mesa y juego">
-                <field name="name"/>
                 <field name="hora"/>
                 <separator string="mesa_id" />
                 <field name="juego_id" />
               </group>
               <separator string="Reservado para " />
-                <field name="jugador_id" />
-                <field name="jugadores" />
+              <group>
+                <field name="jugador_id">Jugador</field>
+                <field name="jugadores">Nº jugadores</field>
+              </group>
             </sheet>
           </form>
         </field>
@@ -392,6 +411,12 @@
       <field name="res_model">clsu_brews_and_boards.juego</field>
       <field name="view_mode">tree,form</field>
     </record>
+    <!-- Acción de ventana de jugador  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.jugador_action_window">
+      <field name="name">Jugadores</field>
+      <field name="res_model">clsu_brews_and_boards.jugador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
     <!-- Acción de ventana de mesa  -->
     <record model="ir.actions.act_window" id="clsu_brews_and_boards.mesa_action_window">
       <field name="name">Mesas</field>
@@ -425,9 +450,12 @@
 
     <!-- Menú en barra para ver staff -->
     <menuitem name="Staff" id="clsu_brews_and_boards.staff_menu" parent="clsu_brews_and_boards.menu_root" action="clsu_brews_and_boards.staff_action_window"/>
-
+    
+    <!-- Menú en barra para ver jugadores -->
+    <menuitem name="Jugadores" id="clsu_brews_and_boards.jugadores_menu" parent="clsu_brews_and_boards.menu_root" action="clsu_brews_and_boards.jugador_action_window"/>
+    
     <!-- Menú en barra para ver relacionado con juegos (juegos y torneos) -->
-    <menuitem name="Juegos" id="clsu_brews_and_boards.resumen_juegos_menu" parent="clsu_brews_and_boards.menu_root"/>
+    <menuitem name="Juegos y Torneos" id="clsu_brews_and_boards.resumen_juegos_menu" parent="clsu_brews_and_boards.menu_root"/>
       <!-- menú para ver juegos -->
       <menuitem name="Juegos" id="clsu_brews_and_boards.juego_menu" parent="clsu_brews_and_boards.resumen_juegos_menu" action="clsu_brews_and_boards.juego_action_window"/>
       <!-- menú para ver torneos -->
