@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "clsu_brews_and_boards",
+    'name': "Brew and Boards",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Gestión de cafetería de juegos de mesa",
 
-    'description': """
-Long description of module's purpose
-    """,
+    'description': "Modulo ",
 
-    'author': "My Company",
+    'author': "Cielo Lucia Sosa Urviola",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -22,7 +20,7 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'data/brews_data.xml'
