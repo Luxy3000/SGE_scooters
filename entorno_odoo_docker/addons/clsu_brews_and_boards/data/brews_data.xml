@@ -1,128 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <!-- Introducción de datos de comida -->
-        <!-- <record id="" model="clsu_brews_and_boards.comida">
-            <field name="name"></field>
-            <field name="nombre"></field>
-            <field name="precio"></field>
-            <field name="tipo"></field>
-            <field name="imagen"></field>ç
 
-            <field name="pedido_id"></field>
-        </record> -->
+    <data noupdate="1">
+    
+        <!-- Pedido 1 -->
+        <record id="P001" model="clsu_brews_and_boards.pedido">
+            <field name="name">P001</field>
+            <field name="hora">2025-02-06 12:30:00</field>
+
+        </record>
         <record id="CO001" model="clsu_brews_and_boards.comida">
             <field name="nombre">Pizza de Pepperoni</field>
             <field name="desc">Pizza de 33cm de diámetro</field>
             <field name="precio">8.50</field>
             <field name="tipo">dish</field>
-            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/"/>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/pizza.jpg"/>
 
-            <field name="pedido_id" ref="P001"/>
-        </record>
-        <record id="CO002" model="clsu_brews_and_boards.comida">
-            <field name="nombre">Papas fritas con queso</field>
-            <field name="desc">Ración de patatas fritas con bacon y queso derretido</field>
-            <field name="precio">4.00</field>
-            <field name="tipo">snacks</field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id" ref="P002"/>
+            <field name="pedido_id" eval="[(6, 0, [ref('P001')])]"/>
         </record>
         <record id="CO003" model="clsu_brews_and_boards.comida">
             <field name="nombre">Pastel de chocolate</field>
             <field name="desc">Porción de pastel de chocolate con nata</field>
             <field name="precio">5.50</field>
             <field name="tipo">dessert</field>
-            <field name="imagen"></field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/pastel.jpeg"/>
 
-            <field name="pedido_id" ref="P001"/>
-        </record>
-
-        <!-- Introducción de datos de bebida -->
-        <!-- <record id="" model="clsu_brews_and_boards.bebida">
-            <field name="desc"></field>
-            <field name="name"></field>
-            <field name="nombre"></field>
-            <field name="precio"></field>
-            <field name="tamanio"></field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id"></field>
-        </record> -->
-        <record id="BE001" model="clsu_brews_and_boards.bebida">
-            <field name="nombre">Café Americano</field>
-            <field name="desc">Taza de café negro</field>
-            <field name="precio">2.00</field>
-            <field name="tamanio">small</field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id" ref="P002"/>
+            <field name="pedido_id" eval="[(6, 0, [ref('P001')])]"/>
         </record>
         <record id="BE002" model="clsu_brews_and_boards.bebida">
             <field name="nombre">Té Verde</field>
             <field name="desc">Infusión de té verde</field>
             <field name="precio">2.50</field>
             <field name="tamanio">medium</field>
-            <field name="imagen"></field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/teverde.jpg"/>
 
-            <field name="pedido_id" ref="P001"/>
+            <field name="pedido_id" eval="[(6, 0, [ref('P001')])]"/>
+        </record>
+
+        <!-- Pedido 2 -->
+         <record id="P002" model="clsu_brews_and_boards.pedido">
+            <field name="name">P002</field>
+            <field name="hora">2025-02-06 13:15:00</field>
+
+        </record>
+        <record id="CO002" model="clsu_brews_and_boards.comida">
+            <field name="nombre">Papas fritas con queso</field>
+            <field name="desc">Ración de patatas fritas con bacon y queso derretido</field>
+            <field name="precio">4.00</field>
+            <field name="tipo">snacks</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/papasqueso.jpg"/>
+
+            <field name="pedido_id" eval="[(6, 0, [ref('P002')])]"/>
+        </record>
+        <record id="BE001" model="clsu_brews_and_boards.bebida">
+            <field name="nombre">Café Americano</field>
+            <field name="desc">Taza de café negro</field>
+            <field name="precio">2.00</field>
+            <field name="tamanio">small</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/cafe_americano.jpeg"/>
+
+            <field name="pedido_id" eval="[(6, 0, [ref('P002')])]"/>
         </record>
         <record id="BE003" model="clsu_brews_and_boards.bebida">
             <field name="nombre">Batido de Fresano</field>
             <field name="desc">Batido natural de fresas</field>
             <field name="precio">3.50</field>
             <field name="tamanio">tall</field>
-            <field name="imagen"></field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/batidofresa.jpg"/>
 
-            <field name="pedido_id" ref="P002"/>
+            <field name="pedido_id" eval="[(6, 0, [ref('P002')])]"/>
         </record>
-
-        <!-- Introducción de datos de pedido -->
-        <!-- <record id="" model="clsu_brews_and_boards.pedido">
-            <field name="name"></field>
-            <field name="hora"></field>
-
-            <field name="comida_id"></field>
-            <field name="bebida_id"></field>
-            <field name="staff_id"></field>
-            <field name="jugador_id"></field>
-        </record> -->
-        <record id="P001" model="clsu_brews_and_boards.pedido">
-            <field name="name">P001</field>
-            <field name="hora">2025-02-06 12:30:00</field>
-
-            <field name="comida_id" eval="[(6, 0, [ref('CO001'), ref('CO003')])]"/> 
-            <field name="bebida_id" eval="[(6, 0, [ref('BE002')])]"/>
-            <field name="staff_id" ref="ST001"/>
-            <field name="jugador_id" ref="J002"/>
-        </record>
-        <record id="P002" model="clsu_brews_and_boards.pedido">
-            <field name="name">P002</field>
-            <field name="hora">2025-02-06 13:15:00</field>
-
-            <field name="comida_id" eval="[(6, 0, [ref('CO002')])]"/>
-            <field name="bebida_id" eval="[(6, 0, [ref('BE001'), ref('BE003')])]"/>
-            <field name="staff_id" ref="ST002"/>
-            <field name="jugador_id" ref="J001"/>
-        </record>
-
-        <!-- Introducción de datos de staff -->
-        <!-- <record id="" model="clsu_brews_and_boards.staff">
-            <field name="name"></field>
-            <field name="nombre"></field>
-            <field name="telf"></field>
-            <field name="email"></field>
-            <field name="rol"></field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id"></field>
-        </record> -->
+        <!-- Staff -->
         <record id="ST001" model="clsu_brews_and_boards.staff">
             <field name="nombre">Juan Pérez</field>
             <field name="telf">123456789</field>
             <field name="email">juan@example.com</field>
             <field name="rol">mess</field>
-            <field name="imagen"></field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/juan.jpeg"/>
 
             <field name="pedido_id" eval="[(6, 0, [ref('P001')])]"/>
         </record>
@@ -131,7 +85,7 @@
             <field name="telf">987654321</field>
             <field name="email">ana@example.com</field>
             <field name="rol">coff</field>
-            <field name="imagen"></field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/ana.jpeg"/>
 
             <field name="pedido_id" eval="[(6, 0, [ref('P002')])]"/>
         </record>
@@ -140,239 +94,11 @@
             <field name="telf">456789123</field>
             <field name="email">carlos@example.com</field>
             <field name="rol">mangr</field>
-            <field name="imagen"></field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/carlos.jpg"/>
 
-            <field name="pedido_id"/>
+            <!-- <field name="pedido_id"/> -->
         </record>
-
-        <!-- Introducción de datos de jugador -->
-        <!-- <record id="" model="clsu_brews_and_boards.jugador">
-            <field name="nombre"></field>
-            <field name="alias"></field>
-            <field name="telf"></field>
-            <field name="email"></field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id"></field>
-            <field name="torneo_id"></field>
-            <field name="reserva_id"></field>
-        </record> -->
-        <record id="J001" model="clsu_brews_and_boards.jugador">
-            <field name="nombre">María López</field>
-            <field name="alias">GamerQueen</field>
-            <field name="telf">555111222</field>
-            <field name="email">maria@example.com</field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id" eval="[(6, 0, [ref('P002')])]"/>
-            <field name="torneo_id"/>
-            <field name="reserva_id"/>
-        </record>
-        
-        <record id="J002" model="clsu_brews_and_boards.jugador">
-            <field name="nombre">Pedro Sánchez</field>
-            <field name="alias">BoardMaster</field>
-            <field name="telf">555333444</field>
-            <field name="email">pedro@example.com</field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id" eval="[(6, 0, [ref('P001')])]"/>
-            <field name="torneo_id"/>
-            <field name="reserva_id"/>
-        </record>
-
-        <record id="J003" model="clsu_brews_and_boards.jugador">
-            <field name="nombre">Ana Martínez</field>
-            <field name="alias">ShadowQueen</field>
-            <field name="telf">555555555</field>
-            <field name="email">ana.martinez@example.com</field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id" />
-            <field name="torneo_id"/>
-            <field name="reserva_id"/>
-        </record>
-
-        <record id="J004" model="clsu_brews_and_boards.jugador">
-            <field name="nombre">Carlos Fernández</field>
-            <field name="alias">DragonSlayer</field>
-            <field name="telf">555666777</field>
-            <field name="email">carlos.fernandez@example.com</field>
-            <field name="imagen"></field>
-
-            <field name="pedido_id" />
-            <field name="torneo_id"/>
-            <field name="reserva_id" ref="RES001"/>
-        </record>
-
-        <!-- Introducción de datos de torneo -->
-        <!-- <record id="" model="clsu_brews_and_boards.torneo">
-            <field name="nombre"></field>
-            <field name="desc"></field>
-            <field name="premio"></field>
-            <field name="fecha_inicio"></field>
-            <field name="fecha_final"></field>
-            
-            <field name="jugador_id"></field>
-            <field name="juego_id"></field>
-        </record> -->
-        <record id="T001" model="clsu_brews_and_boards.torneo">
-            <field name="nombre">Torneo de Catan</field>
-            <field name="desc"></field>
-            <field name="premio">Cupón de 20€</field>
-            <field name="fecha_inicio">2025-03-10</field>
-            <field name="fecha_final"></field>
-            
-            <field name="jugador_id" eval="[(6, 0, [ref('J002'), ref('J003')])]"/>
-            <field name="juego_id" ref="GA001"/>
-        </record>
-        <record id="T002" model="clsu_brews_and_boards.torneo">
-            <field name="nombre">Torneo de Virus </field>
-            <field name="desc"></field>
-            <field name="premio">Juego gratis</field>
-            <field name="fecha_inicio">2025/03/15</field>
-            <field name="fecha_final"></field>
-            
-            <field name="jugador_id" eval="[(6, 0, [ref('J001')])]"/>
-            <field name="juego_id" ref="GA002"/>
-        </record>
-
-        <!-- Introducción de datos de juego -->
-        <!-- <record id="" model="clsu_brews_and_boards.juego">
-            <field name="nombre"></field>
-            <field name="desc"></field>
-            <field name="genero"></field>
-            <field name="num_jugadores"></field>
-            <field name="duracion"></field>
-            <field name="edad_recom"></field>
-            <field name="imagen"></field>
-
-            <field name="torneo_id"></field>
-            <field name="reserva_id"></field>
-        </record> -->
-        <record id="GA001" model="clsu_brews_and_boards.juego">
-            <field name="nombre">Catan</field>
-            <field name="desc">Juego de mesa estratégico donde los jugadores colonizan una isla, recolectando y comerciando recursos para construir asentamientos y ciudades.</field>
-            <field name="genero">strategy</field>
-            <field name="num_jugadores">4 jugadores</field>
-            <field name="duracion">90 min</field>
-            <field name="edad_recom">+10</field>
-            <field name="imagen"></field>
-
-            <field name="torneo_id" ref="T001"/>
-            <field name="reserva_id"/>
-        </record>
-        <record id="GA002" model="clsu_brews_and_boards.juego">
-            <field name="nombre">Virus</field>
-            <field name="desc">Juego de cartas rápido y competitivo en el que los jugadores intentan ser los primeros en eliminar todos los virus de su cuerpo, utilizando estrategias y cartas especiales.</field>
-            <field name="genero">party</field>
-            <field name="num_jugadores">2-6 jugadores</field>
-            <field name="duracion">30 min</field>
-            <field name="edad_recom">+8</field>
-            <field name="imagen"></field>
-
-            <field name="torneo_id" ref="T002"/>
-            <field name="reserva_id"/>
-        </record>
-
-        <record id="GA003" model="clsu_brews_and_boards.juego">
-            <field name="nombre">Aventureros al Tren</field>
-            <field name="desc">Juego de mesa estratégico donde los jugadores compiten por construir la mejor red ferroviaria en un mapa de Norteamérica, conectando ciudades y completando rutas.</field>
-            <field name="genero">Estrategia</field>
-            <field name="num_jugadores">2-6 jugadores</field>
-            <field name="duracion">30-60 minutos</field>
-            <field name="edad_recom">+8 años</field>
-            <field name="imagen"></field>
-
-            <field name="torneo_id" ref="T002"/>
-            <field name="reserva_id"/>
-        </record>
-
-        <record id="GA004" model="clsu_brews_and_boards.juego">
-            <field name="nombre">Carcassonne</field>
-            <field name="desc">Juego de colocación de losetas donde los jugadores construyen ciudades, caminos y campos en el paisaje medieval del sur de Francia, intentando controlar las áreas para obtener puntos.</field>
-            <field name="genero">Estrategia</field>
-            <field name="num_jugadores">2-5 jugadores</field>
-            <field name="duracion">35 minutos</field>
-            <field name="edad_recom">+7 años</field>
-            <field name="imagen"></field>
-
-            <field name="torneo_id"/>
-            <field name="reserva_id"/>
-        </record>
-
-        <record id="GA005" model="clsu_brews_and_boards.juego">
-            <field name="nombre">The Binding of Isaac: Four Souls</field>
-            <field name="desc">Juego de cartas basado en el universo de "The Binding of Isaac", donde los jugadores asumen el rol de personajes que luchan contra monstruos y jefes para recolectar almas y ganar la partida.</field>
-            <field name="genero">Estrategia, Aventura</field>
-            <field name="num_jugadores">2-4 jugadores</field>
-            <field name="duracion">30-60 minutos</field>
-            <field name="edad_recom">+13 años</field>
-            <field name="imagen"></field>
-
-            <field name="torneo_id"/>
-            <field name="reserva_id"/>
-        </record>
-
-        <record id="GA006" model="clsu_brews_and_boards.juego">
-            <field name="nombre">Exploding Kittens</field>
-            <field name="desc">Juego de cartas rápido y divertido donde los jugadores intentan evitar robar una carta de "Exploding Kitten" que los elimina de la partida, utilizando cartas de acción para sabotear a los demás.</field>
-            <field name="genero">Cartas, Party</field>
-            <field name="num_jugadores">2-5 jugadores</field>
-            <field name="duracion">10-15 minutos</field>
-            <field name="edad_recom">+7 años</field>
-            <field name="imagen"></field>
-
-            <field name="torneo_id"/>
-            <field name="reserva_id"/>
-        </record>
-
-        <!-- Introducción de datos de mesa -->
-        <!-- <record id="" model="clsu_brews_and_boards.mesa">
-            <field name="name"></field>
-            <field name="num_mesa"></field>
-            <field name="capacidad"></field>
-            <field name="tipo"></field>
-            <field name="estado"></field>
-
-            <field name="reserva_id"></field>
-        </record> -->
-        <record id="ME001" model="clsu_brews_and_boards.mesa">
-            <field name="num_mesa">01</field>
-            <field name="capacidad">4</field>
-            <field name="tipo">True</field>
-            <field name="estado">free</field>
-
-            <field name="reserva_id" ref="RES001"/>
-        </record>
-        <record id="ME002" model="clsu_brews_and_boards.mesa">
-            <field name="num_mesa">02</field>
-            <field name="capacidad">6</field>
-            <field name="tipo">True</field>
-            <field name="estado">resr</field>
-
-            <field name="reserva_id"/>
-        </record>
-
-        <!-- Introducción de datos de reserva -->
-        <!-- <record id="" model="clsu_brews_and_boards.reserva">
-            <field name="name"></field>
-            <field name="hora"></field>
-            <field name="jugadores"></field>
-
-            <field name="jugador_id"></field>
-            <field name="juego_id"></field>
-            <field name="mesa_id"></field>
-        </record> -->
-        <record id="RES001" model="clsu_brews_and_boards.reserva">
-            <field name="name">RES001</field>
-            <field name="hora"></field>
-            <field name="jugadores">4</field>
-
-            <field name="jugador_id" ref="J004"/>
-            <field name="juego_id" ref="GA006"/>
-            <field name="mesa_id" ref="ME001"/>
-        </record>
-
     </data>
+    
+
 </odoo>

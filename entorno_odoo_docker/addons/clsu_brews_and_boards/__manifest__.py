@@ -20,6 +20,7 @@
 
     # always loaded
     'data': [
+        'security/brews_and_boards_security.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
@@ -29,5 +30,7 @@
     'demo': [
         'demo/demo.xml',
     ],
+    # Se indica que es una aplicación
+    'application': True,
 }
 

@@ -25,17 +25,19 @@ from odoo import models, fields, api # type: ignore
 class comida(models.Model):
     _name = 'clsu_brews_and_boards.comida'
     _description = 'Menú de comida'
+    _rec_name = 'nombre'
 
-    nombre = fields.Char('Nombre de la comida')
+    nombre = fields.Char('Nombre de la comida', required=True)
     desc = fields.Char('Descripción') 
-    precio = fields.Float('Precio')
+    precio = fields.Float('Precio', required=True)
     tipo = fields.Selection(
         string='Tipo', 
         selection=[
             ('snacks','Picoteo'),
             ('dish','Primer plato'),
             ('dessert','Postre')
-        ]
+        ],
+        default="snacks"
     )
     imagen = fields.Binary(string="Imagen")
 
@@ -50,17 +52,19 @@ class comida(models.Model):
 class bebida(models.Model):
     _name = 'clsu_brews_and_boards.bebida'
     _description = 'Menú de bebidas'
+    _rec_name = 'nombre'
 
-    nombre = fields.Char('Nombre de la bebida')
+    nombre = fields.Char('Nombre de la bebida', required=True)
     desc = fields.Char('Descripción') 
-    precio = fields.Float('Precio')
+    precio = fields.Float('Precio', required=True)
     tamanio = fields.Selection(
         string='Tamaño', 
         selection=[
             ('small','Pequeño'),
             ('medium','Mediano'),
             ('tall','Grande')
-        ]
+        ],
+        default="medium"
     )
     imagen = fields.Binary(string="Imagen")
 
@@ -75,6 +79,7 @@ class bebida(models.Model):
 class pedido(models.Model):
     _name = 'clsu_brews_and_boards.pedido'
     _description = 'Pedido de comida'
+    _rec_name = 'nombre'
 
     name = fields.Char('Pedido')
     hora = fields.Datetime('Hora del pedido')
@@ -105,17 +110,19 @@ class pedido(models.Model):
 class staff(models.Model):
     _name = 'clsu_brews_and_boards.staff'
     _description = 'Trabajadores'
+    _rec_name = 'nombre'
 
-    nombre = fields.Char('Nombre: ')
+    nombre = fields.Char('Nombre: ', required=True)
     telf = fields.Integer('Telefono: ')
-    email = fields.Char('Email: ')
+    email = fields.Char('Email: ', required=True)
     rol = fields.Selection(
         string='Rol', 
         selection=[
             ('mess','Mesero'),
             ('coff','Barista'),
             ('mangr','Administrador')
-        ]
+        ],
+        default="coff"
     )
     imagen = fields.Binary(string="Imagen")
 
@@ -128,12 +135,13 @@ class staff(models.Model):
 class jugador(models.Model):
     _name = 'clsu_brews_and_boards.jugador'
     _description = 'Cliente habitual'
+    _rec_name = 'nombre'
 
     # name = fields.Char('Jugadores')
-    nombre = fields.Char('Nombre completo: ')
+    nombre = fields.Char('Nombre completo: ', required=True)
     alias = fields.Char('Alias: ')
     telf = fields.Char("Nº teléfono: ")
-    email = fields.Char("Email: ")
+    email = fields.Char("Email: ", required=True)
     imagen = fields.Binary(string="Imagen")
 
     pedido_id=fields.One2many(
@@ -157,10 +165,11 @@ class jugador(models.Model):
 class torneo(models.Model):
     _name = 'clsu_brews_and_boards.torneo'
     _description = 'Torneo de juego'
+    _rec_name = 'nombre'
 
-    nombre = fields.Char('Titulo del torneo: ')
+    nombre = fields.Char('Titulo del torneo: ', required=True)
     desc = fields.Char('Descripción') 
-    premio = fields.Char('Premio del torneo: ')
+    premio = fields.Char('Premio del torneo: ', required=True)
     fecha_inicio = fields.Date('Fecha establecida de inicio: ')
     fecha_final = fields.Date('Fecha establecida de fin:')
 
@@ -179,8 +188,9 @@ class torneo(models.Model):
 class juego(models.Model):
     _name = 'clsu_brews_and_boards.juego'
     _description = 'Torneo de juego'
+    _recname = 'nombre'
 
-    nombre = fields.Char('Nombre del juego: ')
+    nombre = fields.Char('Nombre del juego: ', required=True)
     desc = fields.Char('Descripción') 
     genero = fields.Selection(
         string='Género del juego', 
@@ -213,9 +223,10 @@ class juego(models.Model):
 class mesa(models.Model):
     _name = 'clsu_brews_and_boards.mesa'
     _description = 'Mesas del local'
+    _recname = 'nombre'
 
     # name = fields.Char('Mesas disponibles')
-    num_mesa = fields.Char('Codigo')
+    num_mesa = fields.Char('Codigo', required=True)
     capacidad = fields.Integer('Cupo de sillas: ')
     tipo = fields.Boolean(string='Apto para juego', default=True)
     estado = fields.Selection(
@@ -224,7 +235,8 @@ class mesa(models.Model):
             ('free','Libre'),
             ('stop','Ocupada'),
             ('resr','Reservada')
-        ]
+        ], 
+        default="free"
     )
 
     reserva_id=fields.Many2one(
@@ -235,9 +247,10 @@ class mesa(models.Model):
 class reserva(models.Model):
     _name = 'clsu_brews_and_boards.reserva'
     _description = 'Registro de reserva'
+    _recname = 'jugador_id'
 
     # name = fields.Char('Reserva')
-    hora = fields.Datetime('Hora de la reserva: ')
+    hora = fields.Datetime('Hora de la reserva: ', required=True)
     jugadores = fields.Integer('Número de personas para la reserva: ')
 
     jugador_id=fields.Many2one(
