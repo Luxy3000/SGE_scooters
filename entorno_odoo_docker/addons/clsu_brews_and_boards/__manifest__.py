@@ -4,7 +4,7 @@
 
     'summary': "Gestión de cafetería de juegos de mesa",
 
-    'description': "Modulo ",
+    'description': "Modulo de gestión de locales de ocio con servicio de cafetería y ludoteca con juegos de mesa",
 
     'author': "Cielo Lucia Sosa Urviola",
     'website': "https://www.yourcompany.com",
