@@ -30,6 +30,7 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'icon': '/clsu_brews_and_boards/static/description/icon.jpg',
     # Se indica que es una aplicación
     'application': True,
 }
