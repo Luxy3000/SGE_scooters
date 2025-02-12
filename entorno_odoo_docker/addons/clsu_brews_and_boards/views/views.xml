@@ -371,6 +371,19 @@
       <field name="view_mode">tree,form</field>
     </record>
 -->
+
+    <!-- Acción de ventana de torneo  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.torneo_action_window">
+      <field name="name">Torneos</field>
+      <field name="res_model">clsu_brews_and_boards.torneo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana de juego  -->
+    <record model="ir.actions.act_window" id="clsu_brews_and_boards.juego_action_window">
+      <field name="name">Juegos</field>
+      <field name="res_model">clsu_brews_and_boards.juego</field>
+      <field name="view_mode">tree,form</field>
+    </record>
     <!-- Acción de ventana de pedido  -->
     <record model="ir.actions.act_window" id="clsu_brews_and_boards.pedido_action_window">
       <field name="name">Pedidos</field>
@@ -394,19 +407,7 @@
       <field name="name">Staff</field>
       <field name="res_model">clsu_brews_and_boards.staff</field>
       <field name="view_mode">tree,form</field>
-    </record>
-    <!-- Acción de ventana de torneo  -->
-    <record model="ir.actions.act_window" id="clsu_brews_and_boards.torneo_action_window">
-      <field name="name">Torneos</field>
-      <field name="res_model">clsu_brews_and_boards.torneo</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <!-- Acción de ventana de juego  -->
-    <record model="ir.actions.act_window" id="clsu_brews_and_boards.juego_action_window">
-      <field name="name">Juegos</field>
-      <field name="res_model">clsu_brews_and_boards.juego</field>
-      <field name="view_mode">tree,form</field>
-    </record>
+    </record>   
     <!-- Acción de ventana de jugador  -->
     <record model="ir.actions.act_window" id="clsu_brews_and_boards.jugador_action_window">
       <field name="name">Jugadores</field>
@@ -435,6 +436,13 @@
     <menuitem name="Menu 1" id="clsu_brews_and_boards.menu_1" parent="clsu_brews_and_boards.menu_root"/>
     <menuitem name="Menu 2" id="clsu_brews_and_boards.menu_2" parent="clsu_brews_and_boards.menu_root"/>
 -->
+    <!-- Menú en barra para ver relacionado con juegos (juegos y torneos) -->
+    <menuitem name="Juegos y Torneos" id="clsu_brews_and_boards.resumen_juegos_menu" parent="clsu_brews_and_boards.menu_root"/>
+      <!-- menú para ver juegos -->
+      <menuitem name="Juegos" id="clsu_brews_and_boards.juego_menu" parent="clsu_brews_and_boards.resumen_juegos_menu" action="clsu_brews_and_boards.juego_action_window"/>
+      <!-- menú para ver torneos -->
+      <menuitem name="Torneos" id="clsu_brews_and_boards.torneo_menu" parent="clsu_brews_and_boards.resumen_juegos_menu" action="clsu_brews_and_boards.torneo_action_window"/>
+
     <!-- Menú inicial para ver relacionado con pedidos (pedidos, bebidas y comidas) --> 
     <menuitem name="Pedidos" id="clsu_brews_and_boards.resumen_pedidos_menu" parent="clsu_brews_and_boards.menu_root" />
       <!-- menú para ver pedidos -->
@@ -449,13 +457,6 @@
     
     <!-- Menú en barra para ver jugadores -->
     <menuitem name="Jugadores" id="clsu_brews_and_boards.jugadores_menu" parent="clsu_brews_and_boards.menu_root" action="clsu_brews_and_boards.jugador_action_window"/>
-    
-    <!-- Menú en barra para ver relacionado con juegos (juegos y torneos) -->
-    <menuitem name="Juegos y Torneos" id="clsu_brews_and_boards.resumen_juegos_menu" parent="clsu_brews_and_boards.menu_root"/>
-      <!-- menú para ver juegos -->
-      <menuitem name="Juegos" id="clsu_brews_and_boards.juego_menu" parent="clsu_brews_and_boards.resumen_juegos_menu" action="clsu_brews_and_boards.juego_action_window"/>
-      <!-- menú para ver torneos -->
-      <menuitem name="Torneos" id="clsu_brews_and_boards.torneo_menu" parent="clsu_brews_and_boards.resumen_juegos_menu" action="clsu_brews_and_boards.torneo_action_window"/>
     
     <!-- Menú en barra para ver relacionado con mesas (mesas y reservas) -->
     <menuitem name="Mesas y reservas" id="clsu_brews_and_boards.resumen_mesas_menu" parent="clsu_brews_and_boards.menu_root"/>
