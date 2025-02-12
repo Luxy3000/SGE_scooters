@@ -65,7 +65,6 @@
         <tree>
           <field name="imagen" widget="image"/>
           <field name="nombre"/>
-          <field name="desc"/>
           <field name="precio"/>
           <field name="tipo"/>
         </tree>
@@ -81,7 +80,7 @@
               <group name="datos_comida" string="Datos sobre la comida">
                 <group>
                   <field name="nombre"/>
-                  <field name="desc"/>
+                  <field name="desc" widget="text"/>
                   <field name="tipo"/>
                   <field name="precio"/>
                 </group>
@@ -104,7 +103,6 @@
         <tree>
           <field name="imagen" widget="image"/>
           <field name="nombre"/>
-          <field name="desc"/>
           <field name="precio"/>
           <field name="tamanio"/>
         </tree>
@@ -120,7 +118,7 @@
               <group name="datos_bebida" string="Datos sobre la bebida">
                 <group>
                   <field name="nombre"/>
-                  <field name="desc"/>
+                  <field name="desc" widget="text"/>
                   <field name="tamanio"/>
                   <field name="precio"/>
                 </group>
@@ -223,7 +221,6 @@
       <field name="arch" type="xml">
         <tree>
           <field name="nombre"/>
-          <field name="desc"/>
           <field name="premio"/>
           <field name="juego_id" />
           <field name="fecha_inicio"/>
@@ -240,7 +237,7 @@
             <sheet>
               <group name="datos" string="Datos generales del torneo">
                 <field name="nombre"/>
-                <field name="desc"/>
+                <field name="desc" widget="text"/>
                 <field name="premio"/>
                 <separator string="Fechas: " />
                 <field name="fecha_inicio" />
@@ -261,7 +258,6 @@
         <tree>
           <field name="imagen" widget="image"/>
           <field name="nombre"/>
-          <field name="desc"/>
           <field name="genero"/>
           <field name="num_jugadores" />
           <field name="duracion"/>
@@ -282,7 +278,7 @@
                 </group>
                 <group name="datos" string="Datos generales del juego">
                   <field name="nombre"/>
-                  <field name="desc"/>
+                  <field name="desc" widget="text"/>
                   <field name="genero"/>
                   <separator string="num_jugadores" />
                   <field name="duracion" />

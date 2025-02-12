@@ -79,7 +79,7 @@ class bebida(models.Model):
 class pedido(models.Model):
     _name = 'clsu_brews_and_boards.pedido'
     _description = 'Pedido de comida'
-    _rec_name = 'nombre'
+    _rec_name = 'name'
 
     name = fields.Char('Pedido')
     hora = fields.Datetime('Hora del pedido')
@@ -170,8 +170,8 @@ class torneo(models.Model):
     nombre = fields.Char('Titulo del torneo: ', required=True)
     desc = fields.Char('Descripción') 
     premio = fields.Char('Premio del torneo: ', required=True)
-    fecha_inicio = fields.Date('Fecha establecida de inicio: ')
-    fecha_final = fields.Date('Fecha establecida de fin:')
+    fecha_inicio = fields.Datetime('Fecha establecida de inicio: ')
+    fecha_final = fields.Datetime('Fecha establecida de fin:')
 
     jugador_id = fields.Many2many(
         'clsu_brews_and_boards.jugador',
@@ -188,7 +188,7 @@ class torneo(models.Model):
 class juego(models.Model):
     _name = 'clsu_brews_and_boards.juego'
     _description = 'Torneo de juego'
-    _recname = 'nombre'
+    _rec_name = 'nombre'
 
     nombre = fields.Char('Nombre del juego: ', required=True)
     desc = fields.Char('Descripción') 
@@ -205,7 +205,7 @@ class juego(models.Model):
         ]
     )
     num_jugadores = fields.Char('Numero de jugadores recomendados')
-    duracion = fields.Integer('Duracion media de partida')
+    duracion = fields.Char('Duracion media de partida')
     edad_recom = fields.Char('Edad mínima recomendada')
     imagen = fields.Binary(string="Imagen")
 
@@ -223,7 +223,7 @@ class juego(models.Model):
 class mesa(models.Model):
     _name = 'clsu_brews_and_boards.mesa'
     _description = 'Mesas del local'
-    _recname = 'nombre'
+    _rec_name = 'num_mesa'
 
     # name = fields.Char('Mesas disponibles')
     num_mesa = fields.Char('Codigo', required=True)
@@ -239,7 +239,7 @@ class mesa(models.Model):
         default="free"
     )
 
-    reserva_id=fields.Many2one(
+    reserva_id = fields.Many2one(
         'clsu_brews_and_boards.reserva',
         string='Mesa reservada: '
     )
@@ -247,7 +247,7 @@ class mesa(models.Model):
 class reserva(models.Model):
     _name = 'clsu_brews_and_boards.reserva'
     _description = 'Registro de reserva'
-    _recname = 'jugador_id'
+    _rec_name = 'jugador_id'
 
     # name = fields.Char('Reserva')
     hora = fields.Datetime('Hora de la reserva: ', required=True)
@@ -261,8 +261,7 @@ class reserva(models.Model):
         'clsu_brews_and_boards.juego',
         string='Juego reservado '
     )
-    mesa_id=fields.One2many(
+    mesa_id = fields.Many2one(
         'clsu_brews_and_boards.mesa',
-        'reserva_id',
-        string='Reservado a '
+        string='Mesa reservada'
     )

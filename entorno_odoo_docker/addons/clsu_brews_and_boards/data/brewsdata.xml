@@ -217,7 +217,7 @@
             <field name="fecha_final"></field>
             
             <field name="jugador_id" eval="[(6, 0, [ref('J002'), ref('J003')])]"/>
-            <!-- <field name="juego_id" ref="GA001"/> -->
+            <field name="juego_id" ref="GA001"/>
         </record>
         <record id="T002" model="clsu_brews_and_boards.torneo">
             <field name="nombre">Torneo de Virus </field>
@@ -227,7 +227,7 @@
             <field name="fecha_final"></field>
             
             <field name="jugador_id" eval="[(6, 0, [ref('J001')])]"/>
-            <!-- <field name="juego_id" ref="GA002"/> -->
+            <field name="juego_id" ref="GA002"/>
         </record>
 
         <!-- Introducción de datos de juego -->
@@ -251,9 +251,8 @@
             <field name="duracion">90 min</field>
             <field name="edad_recom">+10</field>
             <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/catan.jpg"/>
-
-            <field name="torneo_id" ref="T001"/>
         </record>
+
         <record id="GA002" model="clsu_brews_and_boards.juego">
             <field name="nombre">Virus</field>
             <field name="desc">Juego de cartas rápido y competitivo en el que los jugadores intentan ser los primeros en eliminar todos los virus de su cuerpo, utilizando estrategias y cartas especiales.</field>
@@ -262,8 +261,6 @@
             <field name="duracion">30 min</field>
             <field name="edad_recom">+8</field>
             <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/virus.jpg"/>
-
-            <field name="torneo_id" ref="T002"/>
         </record>
 
         <record id="GA003" model="clsu_brews_and_boards.juego">
@@ -274,8 +271,6 @@
             <field name="duracion">30-60 minutos</field>
             <field name="edad_recom">+8 años</field>
             <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/aventureros.jpg"/>
-
-            <field name="torneo_id" ref="T002"/>
         </record>
 
         <record id="GA004" model="clsu_brews_and_boards.juego">
@@ -286,7 +281,6 @@
             <field name="duracion">35 minutos</field>
             <field name="edad_recom">+7 años</field>
             <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/carcassome.jpg"/>
-
         </record>
 
         <record id="GA005" model="clsu_brews_and_boards.juego">

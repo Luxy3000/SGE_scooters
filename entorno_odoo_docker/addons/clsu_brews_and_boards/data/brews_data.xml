@@ -70,6 +70,7 @@
 
             <field name="pedido_id" eval="[(6, 0, [ref('P002')])]"/>
         </record>
+
         <!-- Staff -->
         <record id="ST001" model="clsu_brews_and_boards.staff">
             <field name="nombre">Juan Pérez</field>
@@ -97,6 +98,161 @@
             <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/carlos.jpg"/>
 
             <!-- <field name="pedido_id"/> -->
+        </record>
+
+        <!-- Jugadores -->
+        <record id="J001" model="clsu_brews_and_boards.jugador">
+            <field name="nombre">María López</field>
+            <field name="alias">GamerQueen</field>
+            <field name="telf">555111222</field>
+            <field name="email">maria@example.com</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/maria.jpg"/>
+
+            <field name="pedido_id" eval="[(6, 0, [ref('P002')])]"/>
+            <!-- <field name="torneo_id"/>
+            <field name="reserva_id"/> -->
+        </record>
+         <record id="J002" model="clsu_brews_and_boards.jugador">
+            <field name="nombre">Pedro Sánchez</field>
+            <field name="alias">BoardMaster</field>
+            <field name="telf">555333444</field>
+            <field name="email">pedro@example.com</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/pedro.jpeg"/>
+
+            <field name="pedido_id" eval="[(6, 0, [ref('P001')])]"/>
+            <!-- <field name="torneo_id"/>
+            <field name="reserva_id"/> -->
+        </record>
+
+        <record id="J003" model="clsu_brews_and_boards.jugador">
+            <field name="nombre">Florencia Martínez</field>
+            <field name="alias">ShadowQueen</field>
+            <field name="telf">555555555</field>
+            <field name="email">ana.martinez@example.com</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/florencia.jpg"/>
+
+            <!-- <field name="pedido_id" />
+            <field name="torneo_id"/>
+            <field name="reserva_id"/> -->
+        </record>
+
+        <record id="J004" model="clsu_brews_and_boards.jugador">
+            <field name="nombre">Carlos Fernández</field>
+            <field name="alias">DragonSlayer</field>
+            <field name="telf">555666777</field>
+            <field name="email">carlos.fernandez@example.com</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/carlosdos.jpg"/>
+            <!-- 
+            <field name="pedido_id" />
+            <field name="torneo_id"/> -->
+            <!-- <field name="reserva_id" ref="RES001"/> -->
+        </record>
+
+        <!-- Juegos -->
+         <record id="GA001" model="clsu_brews_and_boards.juego">
+            <field name="nombre">Catan</field>
+            <field name="desc">Juego de mesa estratégico donde los jugadores colonizan una isla, recolectando y comerciando recursos para construir asentamientos y ciudades.</field>
+            <field name="genero">strategy</field>
+            <field name="num_jugadores">4 jugadores</field>
+            <field name="duracion">90 min</field>
+            <field name="edad_recom">+10</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/catan.jpg"/>
+        </record>
+
+        <record id="GA002" model="clsu_brews_and_boards.juego">
+            <field name="nombre">Virus</field>
+            <field name="desc">Juego de cartas rápido y competitivo en el que los jugadores intentan ser los primeros en eliminar todos los virus de su cuerpo, utilizando estrategias y cartas especiales.</field>
+            <field name="genero">party</field>
+            <field name="num_jugadores">2-6 jugadores</field>
+            <field name="duracion">30 min</field>
+            <field name="edad_recom">+8</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/virus.jpg"/>
+        </record>
+
+        <record id="GA003" model="clsu_brews_and_boards.juego">
+            <field name="nombre">Aventureros al Tren</field>
+            <field name="desc">Juego de mesa estratégico donde los jugadores compiten por construir la mejor red ferroviaria en un mapa de Norteamérica, conectando ciudades y completando rutas.</field>
+            <field name="genero">strategy</field>
+            <field name="num_jugadores">2-6 jugadores</field>
+            <field name="duracion">30-60 minutos</field>
+            <field name="edad_recom">+8 años</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/aventureros.jpg"/>
+        </record>
+
+        <record id="GA004" model="clsu_brews_and_boards.juego">
+            <field name="nombre">Carcassonne</field>
+            <field name="desc">Juego de colocación de losetas donde los jugadores construyen ciudades, caminos y campos en el paisaje medieval del sur de Francia, intentando controlar las áreas para obtener puntos.</field>
+            <field name="genero">strategy</field>
+            <field name="num_jugadores">2-5 jugadores</field>
+            <field name="duracion">35 minutos</field>
+            <field name="edad_recom">+7 años</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/carcassome.jpg"/>
+        </record>
+
+        <record id="GA005" model="clsu_brews_and_boards.juego">
+            <field name="nombre">The Binding of Isaac: Four Souls</field>
+            <field name="desc">Juego de cartas basado en el universo de "The Binding of Isaac", donde los jugadores asumen el rol de personajes que luchan contra monstruos y jefes para recolectar almas y ganar la partida.</field>
+            <field name="genero">strategy</field>
+            <field name="num_jugadores">2-4 jugadores</field>
+            <field name="duracion">30-60 minutos</field>
+            <field name="edad_recom">+13 años</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/tboi.jpg"/>
+        </record>
+
+        <record id="GA006" model="clsu_brews_and_boards.juego">
+            <field name="nombre">Exploding Kittens</field>
+            <field name="desc">Juego de cartas rápido y divertido donde los jugadores intentan evitar robar una carta de "Exploding Kitten" que los elimina de la partida, utilizando cartas de acción para sabotear a los demás.</field>
+            <field name="genero">party</field>
+            <field name="num_jugadores">2-5 jugadores</field>
+            <field name="duracion">10-15 minutos</field>
+            <field name="edad_recom">+7 años</field>
+            <field name="imagen" type="base64" file="/mnt/extra-addons/clsu_brews_and_boards/static/images/explodin.jpg"/>
+        </record>
+
+        <!-- Torneos -->
+        <record id="T001" model="clsu_brews_and_boards.torneo">
+            <field name="nombre">Torneo de Catan</field>
+            <field name="desc">Compite por dominar la isla de Catan, negociando y construyendo rutas comerciales. El jugador con la mayor puntuación al final será el ganador.</field>
+            <field name="premio">Cupón de 20€</field>
+            <field name="fecha_inicio">2025-03-10 10:00:00</field>
+            <field name="fecha_final">2025-03-12 18:00:00</field>
+            
+            <field name="jugador_id" eval="[(6, 0, [ref('J002'), ref('J003')])]"/>
+            <field name="juego_id" ref="GA001"/>
+        </record>
+        <record id="T002" model="clsu_brews_and_boards.torneo">
+            <field name="nombre">Torneo de Virus </field>
+            <field name="desc">Enfréntate a tus oponentes en Virus y usa tus cartas para completar tu organismo antes que los demás. ¡Solo el más astuto ganará!</field>
+            <field name="premio">Juego gratis</field>
+            <field name="fecha_inicio">2025-03-15 10:00:00</field>
+            <field name="fecha_final">2025-03-15 18:00:00</field>
+            
+            <field name="jugador_id" eval="[(6, 0, [ref('J001')])]"/>
+            <field name="juego_id" ref="GA002"/>
+        </record>
+
+        <!-- Mesas -->
+        <record id="ME001" model="clsu_brews_and_boards.mesa">
+            <field name="num_mesa">01</field>
+            <field name="capacidad">4</field>
+            <field name="tipo">True</field>
+            <field name="estado">free</field>
+        </record>
+        <record id="ME002" model="clsu_brews_and_boards.mesa">
+            <field name="num_mesa">02</field>
+            <field name="capacidad">6</field>
+            <field name="tipo">True</field>
+            <field name="estado">resr</field>
+        </record>
+
+        <!-- Reservas -->
+        <record id="RES001" model="clsu_brews_and_boards.reserva">
+            <field name="hora">2025-02-11 18:30:00</field>
+            <field name="jugadores">4</field>
+
+            <field name="jugador_id" ref="J004"/>
+            <field name="juego_id" ref="GA006"/>
+            <field name="mesa_id" ref="ME001"/>
         </record>
     </data>
     
